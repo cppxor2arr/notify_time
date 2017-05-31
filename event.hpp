@@ -3,6 +3,7 @@
 
 #include <string>
 #include <array>
+#include "event_size.hpp"
 
 class event_t
 {
@@ -21,11 +22,11 @@ class event_t
     public:
 
         event_t() = default;
-        event_t(const std::array<std::string, 14>&);
+        event_t(const std::array<std::string, event_constant::size>&);
 
         bool operator<(const event_t& event) const;
 
-        void load_event(const std::array<std::string, 14>&);
+        void load_event(const std::array<std::string, event_constant::size>&);
         friend void send_notif(const event_t&, const unsigned short);
         friend void send_notif(const std::string&, const std::string&);
         friend void send_notif(const std::string&);
