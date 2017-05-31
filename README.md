@@ -12,4 +12,4 @@ Event syntax: (Weekday) (Warn Time) (Start Time) (End Time) (Warn Title) (Warn M
 
 Each event is seperated by one newline.
 
-Command line arguments syntax: <b>exec_file_name mode ("loop" or "now") config_file_path<\b>
+Command line arguments syntax: <b>exec_file_name     mode ("loop" or "now")     config_file_path<\b>
