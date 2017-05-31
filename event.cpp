@@ -5,6 +5,7 @@
 
 #include "notify_time.hpp"
 #include "event.hpp"
+#include "event_size.hpp"
 
 unsigned long long event_t::parse_time(const std::string& wday, const std::string& time) const // parse time in 24 hr format; e.g. 13:55, 07:08;
 {
@@ -49,7 +50,7 @@ std::string event_t::unparse_cmd(const std::string& notif) const
     return time_constant::cmd + " " + notif;
 }
 
-event_t::event_t(const std::array<std::string, 14>& event)
+event_t::event_t(const std::array<std::string, event_constant::size>& event)
 {
     load_event(event);
 }
@@ -59,7 +60,7 @@ bool event_t::operator<(const event_t& event) const
     return warn_time < event.warn_time;
 }
 
-void event_t::load_event(const std::array<std::string, 14>& event)
+void event_t::load_event(const std::array<std::string, event_constant::size>& event)
 {
     weekday              = event.front();
 
