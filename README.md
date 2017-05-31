@@ -8,6 +8,6 @@ Description:
 * Syntax checking of config file
 * Event loop mode and "now" mode (check for active events; if there are none notify nearest event)
 
-Event syntax: <Weekday> <Warn Time> <Start Time> <End Time> <Warn Title> <Warn Msg> <Start Title> <Start Msg> <End Title> <End Msg> <"now" mode about to start title> <"now" mode about to start msg> <"now" mode in progress title> <"now" mode in progress msg
+Event syntax: (Weekday) (Warn Time) (Start Time) (End Time) (Warn Title) (Warn Msg) (Start Title) (Start Msg) (End Title) (End Msg) ("now" mode about to start title) ("now" mode about to start msg) ("now" mode in progress title) ("now" mode in progress msg)
 
-Each event is seperated by one newline.>
+Each event is seperated by one newline.
