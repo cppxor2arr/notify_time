@@ -11,3 +11,5 @@ Description:
 Event syntax: (Weekday) (Warn Time) (Start Time) (End Time) (Warn Title) (Warn Msg) (Start Title) (Start Msg) (End Title) (End Msg) ("now" mode about to start title) ("now" mode about to start msg) ("now" mode in progress title) ("now" mode in progress msg)
 
 Each event is seperated by one newline.
+
+Command line arguments syntax: <b>exec_file_name mode ("loop" or "now") config_file_path<\b>
