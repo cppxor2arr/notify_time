@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
     if (argc != 3) return -1;
     {
-        redi::ipstream proc{"pgrep -c " + static_cast<std::string>(argv[0]), redi::pstreams::pstdout};
+        redi::ipstream proc{"pgrep -c notify_time", redi::pstreams::pstdout};
         std::string output; std::getline(proc.out(), output);
         if (std::stoi(output) > 1 && static_cast<std::string>(argv[1]) == "loop") return 0;
     }
