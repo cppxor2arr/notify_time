@@ -6,6 +6,7 @@
 #include <regex>
 #include <array>
 #include <algorithm>
+#include <ctime>
 #include <thread>
 #include <chrono>
 
