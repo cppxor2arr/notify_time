@@ -31,6 +31,4 @@ int main(int argc, char* argv[])
     catch (...) { send_notif("Unknown error."); return -1; }
 
     event_loop(events, loop);
-
-    return 0;
 }
