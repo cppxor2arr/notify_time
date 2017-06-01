@@ -7,7 +7,7 @@
 #include "event.hpp"
 #include "event_size.hpp"
 
-unsigned long long event_t::parse_time(const std::string& wday, const std::string& time) const // parse time in 24 hr format; e.g. 13:55, 07:08;
+unsigned event_t::parse_time(const std::string& wday, const std::string& time) const // parse time in 24 hr format; e.g. 13:55, 07:08;
 {
     std::string hr{time.substr(0, 2)}, min{time.substr(3, 2)}; // e.g. time: 14:35   hr == 14; min == 35;
     // get index of day and use in time calculation;
@@ -100,7 +100,7 @@ void send_notif(const std::string &notif)
     std::system(event_t().unparse_cmd("\"" + notif + "\"").c_str());
 }
 
-unsigned long long event_t::time(const unsigned short option) const
+unsigned event_t::time(const unsigned short option) const
 {
     switch (option)
     {

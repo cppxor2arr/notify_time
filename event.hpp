@@ -10,10 +10,10 @@ class event_t
     private:
 
         std::string weekday;
-        unsigned long long warn_time{0}, start_time{0}, end_time{0};
+        unsigned warn_time{0}, start_time{0}, end_time{0};
         std::string warn_notif, start_notif, end_notif, about_to_start_notif, in_progress_notif;
 
-        unsigned long long parse_time(const std::string&, const std::string&) const;
+        unsigned parse_time(const std::string&, const std::string&) const;
         std::string unparse_notif(std::string, std::string) const;
         const std::string& find_replace(std::string&, const std::string&,  const std::string&) const;
         std::string compose_notif(const std::string&, const std::string&) const;
@@ -31,7 +31,7 @@ class event_t
         friend void send_notif(const std::string&, const std::string&);
         friend void send_notif(const std::string&);
 
-        unsigned long long time(const unsigned short) const;
+        unsigned time(const unsigned short) const;
         std::string notif(const unsigned short) const;
 };
 

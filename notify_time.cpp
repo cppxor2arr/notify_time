@@ -60,7 +60,7 @@ void event_loop(const std::vector<event_t>& events, const bool loop)
     bool active{false};
     do
     { 
-        const unsigned long long time{current_time()};
+        const unsigned time{current_time()};
 
         for (const event_t& event : events)
         {
@@ -100,16 +100,16 @@ void event_loop(const std::vector<event_t>& events, const bool loop)
     while (loop);
 }
 
-unsigned long long current_time()
+unsigned current_time()
 {
     std::time_t t{std::time(nullptr)};
     struct tm *now{std::localtime(&t)};
     return now->tm_wday * 86400 + now->tm_hour * 3600 + now->tm_min * 60 + now->tm_sec;
 }
 
-std::string time_diff(const unsigned long long time1, const unsigned long long time2)
+std::string time_diff(const unsigned time1, const unsigned time2)
 {
-    const unsigned long long diff{time1 - time2};
+    const unsigned diff{time1 - time2};
     std::string diff_str;
     if (diff / 86400             != 0) diff_str += std::to_string(diff / 86400)             + " day(s) ";
     if (diff % 86400 / 3600      != 0) diff_str += std::to_string(diff % 86400 / 3600)      + " hour(s) ";
