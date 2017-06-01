@@ -1,5 +1,5 @@
 This is just a personal project and is stored on GitHub (don't want to pay for private repo).
-Contribution is unecessary, but you can if you wish.
+Contribution is unecessary, but you can if you wish. If you want to use this project, then the package `ruby-notify` is required.
 
 Description:
 
