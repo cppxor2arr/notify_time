@@ -11,6 +11,7 @@
 
 #include "notify_time.hpp"
 #include "event.hpp"
+#include "event_size.hpp"
 
 void load_conf(std::vector<event_t>& events, const std::string& path)
 {
@@ -23,7 +24,7 @@ void load_conf(std::vector<event_t>& events, const std::string& path)
     while (std::getline(file, str))
     {
         std::istringstream stream{str};
-        constexpr unsigned short size{14}; std::array<std::string, size> event;
+        std::array<std::string, event_constant::size> event;
         for (std::string& s : event) stream >> s;
         if (event[0] == "All")
         {
