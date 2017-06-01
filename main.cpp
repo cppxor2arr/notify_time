@@ -26,9 +26,9 @@ int main(int argc, char* argv[])
     try { load_conf(events, path); }
     catch (const std::pair<std::string, std::string> notif)
     {
-        send_notif(notif.first, notif.second);
-        return -1;
+        send_notif(notif.first, notif.second); return -1;
     }
+    catch (...) { send_notif("Unknown error."); return -1; }
 
     event_loop(events, loop);
 
