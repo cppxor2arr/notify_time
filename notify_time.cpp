@@ -45,7 +45,7 @@ void load_conf(std::vector<event_t>& events, const std::string& path)
         }
         else if (event[0] == "Weekend")
         {
-            event[0] == time_constant::days.front(); events.push_back(event);
+            event[0] = time_constant::days.front(); events.push_back(event);
             event[0] = time_constant::days.back(); events.push_back(event);
             continue;
         }
