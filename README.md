@@ -12,7 +12,7 @@ Event syntax: `(Weekday)   (Warn Time)   (Start Time)   (End Time)   (Warn Title
 
 Each event is seperated by one newline.
 
-Command line arguments syntax: `exec_file_name     mode ("loop" or "now")     config_file_path`
+Command line arguments syntax: `notify_time     mode("loop" or "now")     config_file_path`
 
 Config file rules:
 
