@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
     std::vector<event_t> events;
     try { load_conf(events, path); }
-    catch (const std::pair<std::string, std::string> notif)
+    catch (const std::pair<std::string, std::string>& notif)
     {
         send_notif(notif.first, notif.second); return -1;
     }
