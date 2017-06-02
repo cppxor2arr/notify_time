@@ -14,6 +14,7 @@ class event_t
         std::string warn_notif, start_notif, end_notif, about_to_start_notif, in_progress_notif;
 
         unsigned parse_time(const std::string&, const std::string&) const;
+        bool validate_times(const unsigned, const unsigned, const unsigned) const;
         std::string unparse_notif(std::string, std::string) const;
         const std::string& find_replace(std::string&, const std::string&,  const std::string&) const;
         std::string compose_notif(const std::string&, const std::string&) const;
