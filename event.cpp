@@ -15,7 +15,7 @@ unsigned event_t::parse_time(const std::string& wday, const std::string& time) c
     // std::stoull ignores leading zero; e.g. time: 07:08   hr == 7; min == 8;
 }
 
-bool event_t::validate_times(const unsigned time1, const unsigned time2, const unsigned time3) const
+inline bool event_t::validate_times(const unsigned time1, const unsigned time2, const unsigned time3) const
 {
     if (time1 <= time2 && time2 <= time3) return true;
     else return false;
