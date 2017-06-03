@@ -17,7 +17,7 @@ unsigned event_t::parse_time(const std::string& wday, const std::string& time) c
 
 bool event_t::validate_times(const unsigned time1, const unsigned time2, const unsigned time3) const
 {
-    if (time1 < time2 && time2 < time3) return true;
+    if (time1 <= time2 && time2 <= time3) return true;
     else return false;
 }
 
