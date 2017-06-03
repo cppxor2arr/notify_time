@@ -15,6 +15,12 @@ unsigned event_t::parse_time(const std::string& wday, const std::string& time) c
     // std::stoull ignores leading zero; e.g. time: 07:08   hr == 7; min == 8;
 }
 
+bool validate_times(const unsigned time1, const unsigned time2, const unsigned time3)
+{
+    if (time1 < time2 && time2 < time3) return true;
+    else return false;
+}
+
 std::string event_t::unparse_notif(std::string title, std::string msg) const
 {
     find_replace(title, "+", " ");
@@ -67,7 +73,8 @@ void event_t::load_event(const std::array<std::string, event_constant::size>& ev
     warn_time            = parse_time(weekday, event[1]);
     start_time           = parse_time(weekday, event[2]);
     end_time             = parse_time(weekday, event[3]);
-
+    if (!validate_times(warn_time, start_time, end_time)) throw std::make_pair<std::string, std::string>("Error", "Incorrect times.");
+    
     warn_notif           = unparse_notif(event[4], event[5]);
     start_notif          = unparse_notif(event[6], event[7]);
     end_notif            = unparse_notif(event[8], event[9]);
