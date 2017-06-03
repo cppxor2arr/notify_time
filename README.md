@@ -22,4 +22,5 @@ Config file rules:
 * Config file must have newline at the end
 * The beginning of the file must start with an event (can't start with whitespace)
 
-Example of config file: [Config file](http://s000.tinyupload.com/index.php?file_id=06137321611538773501)
+Example of config file (if config file error occurs add newline at the end of file):
+[Config file](http://s000.tinyupload.com/index.php?file_id=06137321611538773501)
