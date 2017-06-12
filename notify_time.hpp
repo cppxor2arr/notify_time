@@ -19,6 +19,6 @@ void load_conf(std::vector<event_t>&, const std::string&);
 void event_loop(const std::vector<event_t>&, const bool);
 unsigned current_time();
 std::string time_diff(const unsigned, const unsigned);
-void pause(const unsigned);
+inline void pause(const unsigned);
 
 #endif
