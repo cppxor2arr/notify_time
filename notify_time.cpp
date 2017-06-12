@@ -17,10 +17,10 @@
 void load_conf(std::vector<event_t>& events, const std::string& path)
 {
     std::ifstream times{path};
-    if (!times) throw std::make_pair<std::string, std::string>("Error", "No such file or directory.");
+    if (!times) throw std::pair<std::string, std::string>{"Error", "No such file or directory."};
     std::stringstream file; file << times.rdbuf();
     const std::regex conf{"((All|Weekday|Weekend|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\\s+(((([0-1][0-9])|(2[0-3]))\\:([0-5][0-9]))\\s+){3}([[:graph:]]+\\s+){9}[[:graph:]]+\\n)*"};
-    if (!std::regex_match(file.str(), conf)) throw std::make_pair<std::string, std::string>("Error", "Config file in incorrect format.");
+    if (!std::regex_match(file.str(), conf)) throw std::pair<std::string, std::string>{"Error", "Config file in incorrect format."};
     std::string str;
     while (std::getline(file, str))
     {
