@@ -16,7 +16,7 @@ class event_t
         unsigned parse_time(const std::string&, const std::string&) const;
         inline bool validate_times(const unsigned, const unsigned, const unsigned) const;
         std::string unparse_notif(std::string, std::string) const;
-        const std::string& find_replace(std::string&, const std::string&,  const std::string&) const;
+        void find_replace(std::string&, const std::string&,  const std::string&) const;
         std::string compose_notif(const std::string&, const std::string&) const;
         std::string unparse_cmd(const std::string&) const;
 

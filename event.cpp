@@ -28,9 +28,9 @@ std::string event_t::unparse_notif(std::string title, std::string msg) const
     return compose_notif(title, msg);
 }
 
-const std::string& event_t::find_replace(std::string& str, const std::string& search, const std::string& replace) const
+void event_t::find_replace(std::string& str, const std::string& search, const std::string& replace) const
 {
-    if (search == replace) return str;
+    if (search == replace) return;
 
     const std::string::size_type diff{replace.length() - search.length() + 1};
 
@@ -43,7 +43,6 @@ const std::string& event_t::find_replace(std::string& str, const std::string& se
             pos += diff;
         }
     }
-    return str;
 }
 
 std::string event_t::compose_notif(const std::string& title, const std::string& msg) const
