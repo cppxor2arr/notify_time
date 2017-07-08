@@ -60,40 +60,47 @@ void event_loop(const std::vector<event_t>& events, const bool loop)
     bool active{false};
     do
     { 
-        const unsigned time{current_time()};
+        unsigned time{current_time()};
+        bool found{false};
 
-        for (const event_t& event : events)
+        for (unsigned short n{0}; n!= 2; ++n)
         {
-            if (loop)
+            for (const event_t& event : events)
             {
-                if      (time == event.time(time_constant::warn_time))
-                    send_notif(event, time_constant::warn_notif);
-                else if (time == event.time(time_constant::start_time))
-                    send_notif(event, time_constant::start_notif);
-                else if (time == event.time(time_constant::end_time))
-                    send_notif(event, time_constant::end_notif);
+                if (loop)
+                {
+                    if      (time == event.time(time_constant::warn_time))
+                        send_notif(event, time_constant::warn_notif);
+                    else if (time == event.time(time_constant::start_time))
+                        send_notif(event, time_constant::start_notif);
+                    else if (time == event.time(time_constant::end_time))
+                        send_notif(event, time_constant::end_notif);
+                }
+                else
+                {
+                    if      (time >= event.time(time_constant::warn_time) && time < event.time(time_constant::start_time))
+                    {
+                        send_notif(event, time_constant::about_to_start_notif);
+                        send_notif("Time Remaining", time_diff(event.time(time_constant::start_time), time) + " left.");
+                        active = true;
+                    }
+                    else if (time >= event.time(time_constant::start_time) && time < event.time(time_constant::end_time))
+                    {
+                        send_notif(event, time_constant::in_progress_notif);
+                        send_notif("Time Remaining", time_diff(event.time(time_constant::end_time), time) + " to go.");
+                        active = true;
+                    }
+                    else if (event.time(time_constant::warn_time) > time && !active)
+                    {
+                        send_notif("No Active Events", "Nearest event is in " + time_diff(event.time(time_constant::warn_time), time) + "\nNearest event preview:");
+                        send_notif(event, time_constant::warn_notif);
+                        found = true;
+                        break;
+                    }
+                }
             }
-            else
-            {
-                if      (time >= event.time(time_constant::warn_time) && time < event.time(time_constant::start_time))
-                {
-                    send_notif(event, time_constant::about_to_start_notif);
-                    send_notif("Time Remaining", time_diff(event.time(time_constant::start_time), time) + " left.");
-                    active = true;
-                }
-                else if (time >= event.time(time_constant::start_time) && time < event.time(time_constant::end_time))
-                {
-                    send_notif(event, time_constant::in_progress_notif);
-                    send_notif("Time Remaining", time_diff(event.time(time_constant::end_time), time) + " to go.");
-                    active = true;
-                }
-                else if (event.time(time_constant::warn_time) > time && !active)
-                {
-                    send_notif("No Active Events", "Nearest event is in " + time_diff(event.time(time_constant::warn_time), time) + "\nNearest event preview:");
-                    send_notif(event, time_constant::warn_notif);
-                    break;
-                }
-            }
+            if (found) break;
+            time = 0;
         }
         if (loop) pause(1000);
     }
