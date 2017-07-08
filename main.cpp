@@ -16,11 +16,9 @@ int main(int argc, char* argv[])
     }
     std::string mode{argv[1]}, path{argv[2]};
     bool loop{false};
-    {
-        if (mode == "loop") loop = true;
-        else if (mode == "now") loop = false;
-        else return -1;
-    }
+    if (mode == "loop") loop = true;
+    else if (mode == "now") loop = false;
+    else return -1;
 
     std::vector<event_t> events;
     try { load_conf(events, path); }
