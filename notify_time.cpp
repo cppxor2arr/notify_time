@@ -81,13 +81,13 @@ void event_loop(const std::vector<event_t>& events, const bool loop)
                     if      (time >= event.time(time_constant::warn_time) && time < event.time(time_constant::start_time))
                     {
                         send_notif(event, time_constant::about_to_start_notif);
-                        send_notif("Time Remaining", time_diff(event.time(time_constant::start_time), time) + " left.");
+                        send_notif("Time Remaining", time_diff(event.time(time_constant::start_time), time) + "left.");
                         active = true;
                     }
                     else if (time >= event.time(time_constant::start_time) && time < event.time(time_constant::end_time))
                     {
                         send_notif(event, time_constant::in_progress_notif);
-                        send_notif("Time Remaining", time_diff(event.time(time_constant::end_time), time) + " to go.");
+                        send_notif("Time Remaining", time_diff(event.time(time_constant::end_time), time) + "to go.");
                         active = true;
                     }
                     else if (event.time(time_constant::warn_time) > time && !active)
@@ -121,7 +121,7 @@ std::string time_diff(const unsigned time1, const unsigned time2)
     if (diff / 86400             != 0) diff_str += std::to_string(diff / 86400)             + " day(s) ";
     if (diff % 86400 / 3600      != 0) diff_str += std::to_string(diff % 86400 / 3600)      + " hour(s) ";
     if (diff % 86400 % 3600 / 60 != 0) diff_str += std::to_string(diff % 86400 % 3600 / 60) + " minute(s) ";
-    if (diff % 60                != 0) diff_str += std::to_string(diff % 60)                + " second(s)";
+    if (diff % 60                != 0) diff_str += std::to_string(diff % 60)                + " second(s) ";
     return diff_str;
 }
 
