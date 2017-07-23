@@ -1,3 +1,9 @@
+#if (defined(linux) || defined(__linux) || defined(__linux__))
+#error Linux compiler needed.
+#elif defined(__ANDROID__)
+#error Linux compiler needed. Android not supported.
+#endif
+
 #include "pstream.hpp"
 #include <string>
 #include <vector>
