@@ -27,4 +27,5 @@ Example of config file (if config file error occurs add newline at the end of fi
 
 Building the project:
 While in the same directory of these files run `make` in the command line.
-Or while in the same directory run `g++ -Wall -Wextra -pedantic-errors -std=c++14 -O2 -Os -s main.cpp notify_time.cpp event.cpp -o notify_time.
+<br>
+Or while in the same directory run `g++ -Wall -Wextra -pedantic-errors -std=c++14 -O2 -Os -s main.cpp notify_time.cpp event.cpp -o notify_time`.
