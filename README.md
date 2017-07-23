@@ -29,3 +29,5 @@ Building the project:
 While in the same directory of these files run `make` in the command line.
 <br>
 Or while in the same directory run `g++ -Wall -Wextra -pedantic-errors -std=c++14 -O2 -Os -s main.cpp notify_time.cpp event.cpp -o notify_time`.
+<br>
+`-std=c++11` is the oldest version possible.
