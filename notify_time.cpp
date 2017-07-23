@@ -109,8 +109,8 @@ void event_loop(const std::vector<event_t>& events, const bool loop)
 
 unsigned current_time()
 {
-    std::time_t t{std::time(nullptr)};
-    struct tm *now{std::localtime(&t)};
+    const std::time_t t{std::time(nullptr)};
+    const struct tm *now{std::localtime(&t)};
     return now->tm_wday * 86400 + now->tm_hour * 3600 + now->tm_min * 60 + now->tm_sec;
 }
 
