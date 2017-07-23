@@ -24,3 +24,7 @@ Config file rules:
 
 Example of config file (if config file error occurs add newline at the end of file):
 [Config file](http://s000.tinyupload.com/index.php?file_id=06137321611538773501)
+
+Building the project:
+While in the same directory of these files run `make` in the command line.
+Or while in the same directory run `g++ -Wall -Wextra -pedantic-errors -std=c++14 -O2 -Os -s main.cpp notify_time.cpp event.cpp -o notify_time.
