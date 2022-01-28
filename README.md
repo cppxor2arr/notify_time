@@ -1,5 +1,4 @@
-This is just a personal project and is stored on GitHub (don't want to pay for private repo).
-Contribution is unecessary, but you can if you wish. If you want to use this project, then the package `ruby-notify` is required (Linux).
+This is just an abandoned personal project and is stored on GitHub (don't want to pay for private repo). If you want to use this project, then the package `ruby-notify` is required (Linux).
 
 Description:
 
